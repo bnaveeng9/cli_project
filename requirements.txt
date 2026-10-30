@@ -1,0 +1,12 @@
+asyncio
+mcp
+claude
+anthropic
+mcp[cli]
+prompt-toolkit
+pydantic
+python-dotenv
+prompt-toolkit
+stdio
+mcp
+mcp-client
