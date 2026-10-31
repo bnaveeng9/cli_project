@@ -1,8 +1,7 @@
 asyncio
-mcp
+mcp[cli]>=1.8.0,<2.0.0
 claude
 anthropic
-mcp[cli]
 prompt-toolkit
 pydantic
 python-dotenv
@@ -10,3 +9,4 @@ prompt-toolkit
 stdio
 mcp
 mcp-client
+ipykernel

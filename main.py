@@ -9,6 +9,7 @@ from core.claude import Claude
 
 from core.cli_chat import CliChat
 from core.cli import CliApp
+import ipykernel
 
 load_dotenv()
 
@@ -28,7 +29,7 @@ async def main():
 
     server_scripts = sys.argv[1:]
     clients = {}
-
+    print(f"server_scripts = {server_scripts}")
     command, args = (
         ("uv", ["run", "mcp_server.py"])
         if os.getenv("USE_UV", "0") == "1"
@@ -36,6 +37,7 @@ async def main():
     )
 
     async with AsyncExitStack() as stack:
+        print("Inside AsyncExit stack")
         doc_client = await stack.enter_async_context(
             MCPClient(command=command, args=args)
         )
@@ -60,6 +62,12 @@ async def main():
 
 
 if __name__ == "__main__":
-    if sys.platform == "win32":
-        asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
+    # if sys.platform == "win32":
+    #         # Use the runner to execute the coroutine
+    #     with asyncio.Runner(loop_factory=asyncio.ProactorEventLoop) as runner:
+    #          runner.run( main() )
+    # else:
+    #      asyncio.run(main())
     asyncio.run(main())
+
+

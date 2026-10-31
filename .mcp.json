@@ -1,0 +1,12 @@
+{
+	"mcpServers": {
+		"test-mcp-server-62023ef3": {
+			"type": "stdio",
+			"command": "uv",
+			"args": [
+				"run",
+				"mcp_server.py"
+			]
+		}
+	}
+}
